@@ -8,7 +8,7 @@ def triangulo(l1,l2,l3):
         elif (l1 == l2 != l3) or (l1 == l3 != l2) or (l2 == l3 != l1):
             print 'Triangulo Isosceles'
         elif (l1 != l2 != l3):
-                print 'Triangulo Escaleno' 
+            print 'Triangulo Escaleno' 
     else: 
         print 'Não é Triangulo'
 
