@@ -1,8 +1,6 @@
 # coding=utf-8
 # Exercicio_4 - Luiz Henrique Zeferino Junior
 
-num = int(input('Digite um numero inteiro: '))
-
 def funcao_de_retorno(num):
     for x in range(1, num+1):
         y=0
@@ -18,5 +16,6 @@ def funcao_de_retorno(num):
                          y+=1
                      x+=1
                      print''' 
-
+                     
+num = int(input('Digite um numero inteiro: '))
 funcao_de_retorno(num)
