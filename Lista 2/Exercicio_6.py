@@ -4,16 +4,32 @@
 def centenas_dezenas_unidades(valor):
     if (valor/100) != 0:
         quantidade=valor/100
+        centena=quantidade
         valor=valor%100
-        print '%d centena(s)' %quantidade
+        if centena==1:
+            cent='%d centena' %centena
+        else:
+            cent='%d centenas' %centena
+        
     if (valor/10) != 0:
         quantidade=valor/10
+        dezena=quantidade
         valor=valor%10
-        print '%d dezena(s)' %quantidade
+        if dezena==1:
+            deze='%d dezena' %dezena
+        else:
+            deze='%d dezenas' %dezena
+
     if (valor/1) != 0:
         quantidade=valor/1
+        unidade=quantidade
         valor=valor%1
-        print '%d unidade(s)' %quantidade
+        if unidade==1:
+            uni='%d unidade' %unidade
+        else:
+            uni='%d unidades' %unidade
+
+    print '%s, %s e %s' %(cent, deze, uni)
 
 valor=input('Diga um valor inteiro entre 1 e 1000: ')
 centenas_dezenas_unidades(valor)
