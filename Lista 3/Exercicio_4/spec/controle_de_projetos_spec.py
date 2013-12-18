@@ -7,7 +7,7 @@ from controle_de_projetos import Projeto, Avaliador, AvaliadorProjeto, Pesquisad
 
 class ProjetoSpec(unittest.TestCase):
     
-    def it_creates_a_projeto_object(self):
+    def test_creates_a_projeto_object(self):
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando',[],[],[],[],[])
         projeto.codigo |should| equal_to('001')
         projeto.titulo |should| equal_to('Banco de Dados')
@@ -21,70 +21,70 @@ class ProjetoSpec(unittest.TestCase):
         projeto.listaedital |should| equal_to([])
         projeto.bolsistaprojeto |should| equal_to([])
    
-    def it_inserir_avaliador_projeto(self):
+    def test_inserir_avaliador_projeto(self):
         avaliador = Avaliador('001', 'Joao')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         avaliadorprojeto = AvaliadorProjeto('10-10-2013' ,'10-10-2014','Adequado','7.0', avaliador, projeto)
         projeto.inserirAvaliadorProjeto(avaliadorprojeto)
         (avaliadorprojeto in projeto.avaliadorprojeto) |should| equal_to(True) 
     
-    def it_verificar_avaliador_projeto(self):
+    def test_verificar_avaliador_projeto(self):
         avaliador = Avaliador('001', 'Joao')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         avaliadorprojeto = AvaliadorProjeto('10-10-2013' ,'10-10-2014','Adequado','7.0', avaliador, projeto)        
         projeto.inserirAvaliadorProjeto(avaliadorprojeto)
         projeto.verificaAvaliadorProjeto(avaliadorprojeto) |should| equal_to(True)
         
-    def it_inserir_lista_pesquisador(self):
+    def test_inserir_lista_pesquisador(self):
         pesquisador = Pesquisador('001', 'Pedro', '34567897754', '27778990', 'Rua das granjas', 'granja@hotmail.com')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando') 
         listapesquisador = ('001', 'Pedro', '34567897754', '27778990', 'Rua das granjas', 'granja@hotmail.com')    
         projeto.inserirListaPesquisador(listapesquisador)
         (listapesquisador in projeto.listapesquisador) |should| equal_to(True) 
     
-    def it_verificar_lista_pesquisador(self):
+    def test_verificar_lista_pesquisador(self):
         pesquisador = Pesquisador('001', 'Pedro', '34567897754', '27778990', 'Rua das granjas', 'granja@hotmail.com')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         listapesquisador = ('001', 'Pedro', '34567897754', '27778990', 'Rua das granjas', 'granja@hotmail.com')    
         projeto.inserirListaPesquisador(listapesquisador)
         projeto.verificaListaPesquisador(listapesquisador) |should| equal_to(True)
         
-    def it_inserir_integrantes_projeto(self):
+    def test_inserir_integrantes_projeto(self):
         integrantes = Integrantes('001', 'Gabriel','34589076621','27899990','Rua dos Andradas 10','gabrielpmonteiro@hotmail.com')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         integrantesprojeto = IntegrantesProjeto('10-02-2013' ,'10-05-2014','Analista','Analista', integrantes, projeto) 
         projeto.inserirIntegrantesProjeto(integrantesprojeto)
         (integrantesprojeto in projeto.integrantesprojeto) |should| equal_to(True) 
     
-    def it_verificar_integrantes_projeto(self):
+    def test_verificar_integrantes_projeto(self):
         integrantes = Integrantes('001', 'Gabriel','34589076621','27899990','Rua dos Andradas 10','gabrielpmonteiro@hotmail.com')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         integrantesprojeto = IntegrantesProjeto('10-02-2013' ,'10-05-2014','Analista','Analista', integrantes, projeto)                
         projeto.inserirIntegrantesProjeto(integrantesprojeto)
         projeto.verificaIntegrantesProjeto(integrantesprojeto) |should| equal_to(True)
   
-    def it_inserir_lista_edital(self):
+    def test_inserir_lista_edital(self):
         edital = Edital('001', 'Selecao','10-10-2013','10-10-2014')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         listaedital = ('001', 'Selecao','10-10-2013','10-10-2014')
         projeto.inserirListaEdital(listaedital)
         (listaedital in projeto.listaedital) |should| equal_to(True) 
     
-    def it_verificar_lista_edital(self):
+    def test_verificar_lista_edital(self):
         edital = Edital('001', 'Selecao','10-10-2013','10-10-2014')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')      
         listaedital = ('001', 'Selecao','10-10-2013','10-10-2014')      
         projeto.inserirListaEdital(listaedital)
         projeto.verificaListaEdital(listaedital) |should| equal_to(True)
   
-    def it_inserir_bolsista_projeto(self):
+    def test_inserir_bolsista_projeto(self):
         bolsista = Bolsista('001', 'Joao', '0101', '45678903345', 'Sistemas de Informacao', '4', '10-10-1980','Rua das couves')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         bolsistaprojeto = BolsistaProjeto('10-06-2013' ,'10-06-2014','bolsista','dgti', bolsista, projeto)
         projeto.inserirBolsistaProjeto(bolsistaprojeto)
         (bolsistaprojeto in projeto.bolsistaprojeto) |should| equal_to(True)     
     
-    def it_verificar_bolsista_projeto(self):
+    def test_verificar_bolsista_projeto(self):
         bolsista = Bolsista('001', 'Joao', '0101', '45678903345', 'Sistemas de Informacao', '4', '10-10-1980','Rua das couves')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         bolsistaprojeto = BolsistaProjeto('10-06-2013' ,'10-06-2014','bolsista','dgti', bolsista, projeto)
@@ -93,20 +93,20 @@ class ProjetoSpec(unittest.TestCase):
 
 class AvaliadorSpec(unittest.TestCase):
     
-    def it_creates_a_avaliador_object(self):
+    def test_creates_a_avaliador_object(self):
         avaliador = Avaliador('001', 'Joao',[])
         avaliador.codigo |should| equal_to('001')
         avaliador.nome |should| equal_to('Joao')
         avaliador.avaliadorprojeto |should| equal_to([])
         
-    def it_inserir_avaliador_projeto(self):
+    def test_inserir_avaliador_projeto(self):
         avaliador = Avaliador('001', 'Joao')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         avaliadorprojeto = AvaliadorProjeto('10-10-2013' ,'10-10-2014','Adequado','7.0', avaliador, projeto)
         avaliador.inserirAvaliadorProjeto(avaliadorprojeto)
         (avaliadorprojeto in avaliador.avaliadorprojeto) |should| equal_to(True) 
     
-    def it_verificar_avaliador_projeto(self):
+    def test_verificar_avaliador_projeto(self):
         avaliador = Avaliador('001', 'Joao')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         avaliadorprojeto = AvaliadorProjeto('10-10-2013' ,'10-10-2014','Adequado','7.0', avaliador, projeto)
@@ -115,7 +115,7 @@ class AvaliadorSpec(unittest.TestCase):
         
 class AvaliadorProjetoSpec(unittest.TestCase):
     
-    def it_creates_a_avaliador_projeto_object(self):
+    def test_creates_a_avaliador_projeto_object(self):
     
         avaliador = Avaliador('001', 'Joao')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
@@ -131,7 +131,7 @@ class AvaliadorProjetoSpec(unittest.TestCase):
 
 class BolsistaSpec(unittest.TestCase):
     
-    def it_creates_a_bolsista_object(self):
+    def test_creates_a_bolsista_object(self):
         bolsista = Bolsista('001', 'Joao', '0101', '45678903345', 'Sistemas de Informacao', '4', '10-10-1980','Rua das couves',[])
         bolsista.codigo |should| equal_to('001')
         bolsista.nome |should| equal_to('Joao')
@@ -143,7 +143,7 @@ class BolsistaSpec(unittest.TestCase):
         bolsista.endereco |should| equal_to('Rua das couves')
         bolsista.bolsistaprojeto |should| equal_to([])
         
-    def it_inserir_bolsista_projeto(self):
+    def test_inserir_bolsista_projeto(self):
         bolsista = Bolsista('001', 'Joao', '0101', '45678903345', 'Sistemas de Informacao', '4', '10-10-1980','Rua das couves')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         bolsistaprojeto = BolsistaProjeto('10-06-2013' ,'10-06-2014','bolsista','dgti', bolsista, projeto)
@@ -151,7 +151,7 @@ class BolsistaSpec(unittest.TestCase):
         (bolsistaprojeto in bolsista.bolsistaprojeto) |should| equal_to(True) 
     
     
-    def it_verificar_bolsista_projeto(self):
+    def test_verificar_bolsista_projeto(self):
         bolsista = Bolsista('001', 'Joao', '0101', '45678903345', 'Sistemas de Informacao', '4', '10-10-1980','Rua das couves')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         bolsistaprojeto = BolsistaProjeto('10-06-2013' ,'10-06-2014','bolsista','dgti', bolsista, projeto)
@@ -160,7 +160,7 @@ class BolsistaSpec(unittest.TestCase):
 
 class BolsistaProjetoSpec(unittest.TestCase):
     
-    def it_creates_a_bolsista_projeto_object(self):
+    def test_creates_a_bolsista_projeto_object(self):
         bolsista = Bolsista('001', 'Joao', '0101', '45678903345', 'Sistemas de Informacao', '4', '10-10-1980','Rua das couves')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         bolsistaprojeto = BolsistaProjeto('10-06-2013' ,'10-06-2014','bolsista','dgti', bolsista, projeto)
@@ -173,7 +173,7 @@ class BolsistaProjetoSpec(unittest.TestCase):
 
 class EditalSpec(unittest.TestCase):
     
-    def it_creates_a_edital_object(self):
+    def test_creates_a_edital_object(self):
         edital = Edital('001', 'Selecao','10-10-2013','10-10-2014')
         edital.codigo |should| equal_to('001')
         edital.nome |should| equal_to('Selecao')
@@ -182,7 +182,7 @@ class EditalSpec(unittest.TestCase):
 
 class IntegrantesSpec(unittest.TestCase):
     
-    def it_creates_a_integrantes_object(self):
+    def test_creates_a_integrantes_object(self):
         integrantes = Integrantes('001', 'Gabriel','34589076621','27899990','Rua dos Andradas 10','gabrielpmonteiro@hotmail.com',[])
         integrantes.codigo |should| equal_to('001')
         integrantes.nome |should| equal_to('Gabriel')
@@ -192,14 +192,14 @@ class IntegrantesSpec(unittest.TestCase):
         integrantes.email |should| equal_to('gabrielpmonteiro@hotmail.com')
         integrantes.integrantesprojeto |should| equal_to([])
         
-    def it_inserir_integrantes_projeto(self):
+    def test_inserir_integrantes_projeto(self):
         integrantes = Integrantes('001', 'Gabriel','34589076621','27899990','Rua dos Andradas 10','gabrielpmonteiro@hotmail.com')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         integrantesprojeto = IntegrantesProjeto('10-02-2013' ,'10-05-2014','Analista','Analista', integrantes, projeto)
         integrantes.inserirIntegrantesProjeto(integrantesprojeto)
         (integrantesprojeto in integrantes.integrantesprojeto) |should| equal_to(True) 
     
-    def it_verificar_integrantes_projeto(self):
+    def test_verificar_integrantes_projeto(self):
         integrantes = Integrantes('001', 'Gabriel','34589076621','27899990','Rua dos Andradas 10','gabrielpmonteiro@hotmail.com')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         integrantesprojeto = IntegrantesProjeto('10-02-2013' ,'10-05-2014','Analista','Analista', integrantes, projeto)
@@ -208,7 +208,7 @@ class IntegrantesSpec(unittest.TestCase):
 
 class IntegrantesProjetoSpec(unittest.TestCase):
     
-    def it_creates_a_integrantes_projeto_object(self):
+    def test_creates_a_integrantes_projeto_object(self):
         integrantes = Integrantes('001', 'Gabriel','34589076621','27899990','Rua dos Andradas 10','gabrielpmonteiro@hotmail.com')
         projeto = Projeto('001', 'Banco de Dados','Descritivo','10-01-2014','Descricao de Bancos','Avaliando')
         integrantesprojeto = IntegrantesProjeto('10-02-2013' ,'10-05-2014','Analista','Analista', integrantes, projeto)
@@ -221,7 +221,7 @@ class IntegrantesProjetoSpec(unittest.TestCase):
 
 class PesquisadorSpec(unittest.TestCase):
     
-    def it_creates_a_pesquisador_object(self):
+    def test_creates_a_pesquisador_object(self):
         pesquisador = Pesquisador('001', 'Pedro', '34567897754', '27778990', 'Rua das granjas', 'granja@hotmail.com')
         pesquisador.codigo |should| equal_to('001')
         pesquisador.nome |should| equal_to('Pedro')
